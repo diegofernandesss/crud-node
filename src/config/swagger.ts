@@ -1,18 +1,18 @@
-import { FastifyDynamicSwaggerOptions } from "@fastify/swagger";
-import { jsonSchemaTransform } from "fastify-type-provider-zod";
+import { FastifyDynamicSwaggerOptions } from "@fastify/swagger"; 
+import { jsonSchemaTransform } from "fastify-type-provider-zod"; 
 
 export const swaggerConfig: FastifyDynamicSwaggerOptions = {
   openapi: {
     openapi: '3.0.0',
     info: {
-      title: "CRUD API",
-      version: "1.0.0",
-      description: 'API documentation for User operations'
+      title: "CRUD API", 
+      version: "1.0.0",  
+      description: 'API documentation for User operations' 
     },
     servers: [
       {
-        url: 'http://localhost:3333',
-        description: 'Development server'
+        url: 'http://localhost:3333', 
+        description: 'Development server' 
       }
     ],
     components: {
@@ -30,7 +30,7 @@ export const swaggerConfig: FastifyDynamicSwaggerOptions = {
       }
     ],
     externalDocs: {
-      url: 'https://swagger.io',
+      url: 'https://swagger.io', 
       description: 'Find more info here'
     },
   },

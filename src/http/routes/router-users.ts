@@ -3,7 +3,8 @@ import { getUser } from "../controllers/get-user";
 import { UserResponseSchema, UserSchema, UserSchemaParams } from "@/schemas/list-users-schema";
 import { RegisterUserBodySchema, UserSchemaResponse } from "@/schemas/register-body-users-schema";
 import { FastifyTypedInstance } from "@/types/fastify-instance";
-import { getIdUser } from "../controllers/get-id-user";
+import { getUserId } from "../controllers/get-id-user";
+import { deleteUserId } from "../controllers/delete-user";
 
 export async function appRoutesUsers(app: FastifyTypedInstance) {
     app.post('',
@@ -36,8 +37,20 @@ export async function appRoutesUsers(app: FastifyTypedInstance) {
 				description: "Get User by ID",
 				params: UserSchemaParams,
 				response: {
-					200: UserSchema
+					200: UserSchema,
 				}
 			},
-		}, getIdUser)
+		}, getUserId),
+
+	app.delete('/:id',
+		{
+			schema: {
+				tags: ["users"],
+				description: "Delete User by ID",
+				params: UserSchemaParams,
+				response: {
+					200: UserSchemaResponse,
+				}
+			},
+		}, deleteUserId)
 }
