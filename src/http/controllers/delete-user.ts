@@ -1,10 +1,10 @@
 import { PrismaUsersRepository } from "@/repositories/prisma/prisma-users-repository";
-import { FastifyTypedRequestUserId } from "@/types/fastify-instance";
+import { FastifyTypedRequest } from "@/types/fastify-instance";
 import { DeleteIdUseCase } from "@/use-cases/delete-use-case-user";
 import { UserIdExistsError } from "@/use-cases/erros/user-id-exists-error";
 import { FastifyReply } from "fastify";
 
-export async function deleteUserId(request: FastifyTypedRequestUserId, reply: FastifyReply) {
+export async function deleteUserId(request: FastifyTypedRequest, reply: FastifyReply) {
     const { id } = request.params
 
     try {

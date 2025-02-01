@@ -5,6 +5,7 @@ import { RegisterUserBodySchema, UserSchemaResponse } from "@/schemas/register-b
 import { FastifyTypedInstance } from "@/types/fastify-instance";
 import { getUserId } from "../controllers/get-id-user";
 import { deleteUserId } from "../controllers/delete-user";
+import { updateUserId } from "../controllers/update-user";
 
 export async function appRoutesUsers(app: FastifyTypedInstance) {
     app.post('',
@@ -52,5 +53,18 @@ export async function appRoutesUsers(app: FastifyTypedInstance) {
 					200: UserSchemaResponse,
 				}
 			},
-		}, deleteUserId)
+		}, deleteUserId),
+
+	app.put('/:id',
+		{
+			schema: {
+				tags: ["users"],
+				description: "Update User by ID",
+				body: RegisterUserBodySchema,
+				params: UserSchemaParams,
+				response: {
+					200: UserSchemaResponse,
+				}
+			},
+		}, updateUserId)
 }

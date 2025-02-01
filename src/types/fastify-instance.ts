@@ -16,14 +16,17 @@ export type FastifyTypedInstance = FastifyInstance<
 	ZodTypeProvider
 >;
 
+
 interface BodyType {
-	name: string
-	email: string
+    name: string;
+    email: string;
 }
 
 interface ParamsTypeUserId {
-	id: string
+    id: string;
 }
 
-export type FastifyTypedRequest = FastifyRequest<{Body: BodyType}>;
-export type FastifyTypedRequestUserId = FastifyRequest<{ Params: ParamsTypeUserId }>;
+export type FastifyTypedRequest = FastifyRequest<{
+    Body: BodyType;
+    Params: ParamsTypeUserId;
+}>;

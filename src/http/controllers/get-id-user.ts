@@ -1,10 +1,10 @@
 import { PrismaUsersRepository } from "@/repositories/prisma/prisma-users-repository";
-import { FastifyTypedRequestUserId } from "@/types/fastify-instance";
+import { FastifyTypedRequest } from "@/types/fastify-instance";
 import { FastifyReply } from "fastify";
 import { GetIdUseCase } from "@/use-cases/get-id-use-case-url";
 import { UserIdExistsError } from "@/use-cases/erros/user-id-exists-error";
 
-export async function getUserId(request: FastifyTypedRequestUserId, reply: FastifyReply) {
+export async function getUserId(request: FastifyTypedRequest, reply: FastifyReply) {
     const { id } = request.params;
 
     try {
