@@ -14,12 +14,10 @@ export async function getIdUser(request: FastifyTypedRequestUserId, reply: Fasti
         const user = await getUseCaseId.execute({ id });
 
         return reply.status(200).send({
-            user: {
-                id: user.id,
-                name: user.name,
-                email: user.email,
-                created_at: user.created_at.toISOString(),
-            },
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            created_at: user.created_at.toISOString(),
         });
     } catch (err) {
         if (err instanceof UserIdExistsError) {

@@ -1,8 +1,8 @@
 import { registerUser } from "../controllers/register-user";
 import { z } from "zod";
 import { getUser } from "../controllers/get-user";
-import { UserResponseSchema, UserSchema } from "@/validations/list-users-schema";
-import { registerUserBodySchema } from "@/validations/register-body-users-schema";
+import { UserResponseSchema, UserSchema, UserSchemaParams } from "@/schemas/list-users-schema";
+import { RegisterUserBodySchema, UserSchemaResponse } from "@/schemas/register-body-users-schema";
 import { FastifyTypedInstance } from "@/types/fastify-instance";
 import { getIdUser } from "../controllers/get-id-user";
 
@@ -12,11 +12,9 @@ export async function appRoutesUsers(app: FastifyTypedInstance) {
 			schema: {
 				tags: ["users"],
 				description: "Create User",
-				body: registerUserBodySchema,
+				body: RegisterUserBodySchema,
 				response: {
-					201: z.object({
-					  message: z.string()
-					})
+					201: UserSchemaResponse,
 				  },
 			},
 		}, registerUser),
@@ -37,13 +35,9 @@ export async function appRoutesUsers(app: FastifyTypedInstance) {
 			schema: {
 				tags: ["users"],
 				description: "Get User by ID",
-				params: z.object({
-					id: z.string().uuid(),
-				}),
+				params: UserSchemaParams,
 				response: {
-					200: z.object({
-						user: UserSchema
-					})
+					200: UserSchema
 				}
 			},
 		}, getIdUser)
