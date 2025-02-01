@@ -1,5 +1,4 @@
 import { registerUser } from "../controllers/register-user";
-import { z } from "zod";
 import { getUser } from "../controllers/get-user";
 import { UserResponseSchema, UserSchema, UserSchemaParams } from "@/schemas/list-users-schema";
 import { RegisterUserBodySchema, UserSchemaResponse } from "@/schemas/register-body-users-schema";
