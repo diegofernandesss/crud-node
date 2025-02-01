@@ -1,11 +1,16 @@
-import { registerUser } from "../controllers/register-user";
-import { getUser } from "../controllers/get-user";
-import { UserResponseSchema, UserSchema, UserSchemaParams } from "@/schemas/list-users-schema";
-import { RegisterUserBodySchema, UserSchemaResponse } from "@/schemas/register-body-users-schema";
 import { FastifyTypedInstance } from "@/types/fastify-instance";
+
+import { getUser } from "../controllers/get-user";
 import { getUserId } from "../controllers/get-id-user";
+import { registerUser } from "../controllers/register-user";
 import { deleteUserId } from "../controllers/delete-user";
 import { updateUserId } from "../controllers/update-user";
+
+import { RegisterUserBodySchema } from "@/schemas/register-user-schema";
+import { UserSchemaResponse } from "@/schemas/user-schema-response";
+import { UserResponseSchema } from "@/schemas/user-response-schema";
+import { UserSchemaParams } from "@/schemas/user-schema-params";
+import { UserSchema } from "@/schemas/user-schema";
 
 export async function appRoutesUsers(app: FastifyTypedInstance) {
     app.post('',

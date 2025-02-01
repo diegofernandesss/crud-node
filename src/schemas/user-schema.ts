@@ -6,9 +6,3 @@ export const UserSchema = z.object({
   email: z.string(),
   created_at: z.string(),
 });
-
-export const UserResponseSchema = z.array(UserSchema);
-
-export const UserSchemaParams = z.object({
-  id: z.string().uuid(),
-});
